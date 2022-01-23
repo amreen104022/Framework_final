@@ -21,6 +21,7 @@ import screenShot.TakeScreenShot;
 
 public class changeLocationGRA extends BaseClass
 {
+	
 	@Test
 	public void Login123() throws InterruptedException, FileNotFoundException, IOException
 	{
@@ -28,8 +29,7 @@ public class changeLocationGRA extends BaseClass
 		String uname= p.getdata(0, 1, 1);
 		
 		String password = p.getdata(0, 2, 1);
-        String methodName =
-                Thread.currentThread().getStackTrace()[1].getMethodName();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
         
         System.out.println(methodName);
         
@@ -39,10 +39,14 @@ public class changeLocationGRA extends BaseClass
 		
         String className = this.getClass().getSimpleName(); 
         
+        Thread.sleep(3000);
+        
         ScreenShot ss = new ScreenShot();
-        ss.getAshot(driver, constant, photo, methodName, className);
-
+        System.out.println(currentDir);
+        ss.getAshot(driver, currentDir, "./Photo/", methodName, className);
+        
 		//click on user profile
+        Thread.sleep(3000);
 
         homePage hp = new homePage(driver);
 		hp.getUserProfile();
@@ -55,19 +59,21 @@ public class changeLocationGRA extends BaseClass
 		WebDriverUtilities wd= new WebDriverUtilities();
 		Thread.sleep(3000);
 		//wd.takeScreenShot(driver, className);
-
+		
 		//select location in current location GRA
 		wd.dropDown(pp.getLocationGRA(), "Karad Branch - Tops/ Small Ornament Counter KRD");
 		Thread.sleep(3000);
-
-//		wd.takeScreenShot(driver, className);
-
+		
+		//wd.takeScreenShot(driver, className);
+		
 		//click on save changes
 		pp.getSaveChanges();
 		Thread.sleep(3000);
-	
+		
 		ss.takeScreenShot(driver, constant, photo, className, methodName);
 		ll.LogoutPage(driver);
-			
+		
 	}
+
+	
 } 

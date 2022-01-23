@@ -9,6 +9,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class PropertyFile implements AutoConstant{
+	
 	public String getPropertyFileData(String key) throws FileNotFoundException, IOException
 	
 	{
