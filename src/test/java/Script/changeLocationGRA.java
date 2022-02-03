@@ -3,19 +3,19 @@ package Script;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import org.testng.ITestResult;
+//import org.testng.ITestResult;
 import org.testng.annotations.Test;
 
 import Generic.BaseClass;
-import Generic.Photo;
+//import Generic.Photo;
 import Generic.WebDriverUtilities;
 import LoginPage.LoginLogout;
 //import LoginPage.LoginLogout;
-import PomPages.LoginPage;
+//import PomPages.LoginPage;
 import PomPages.homePage;
 import PomPages.profilePage;
 import SS.ScreenShot;
-import screenShot.TakeScreenShot;
+//import screenShot.TakeScreenShot;
 
 //import generic.screenShot;
 

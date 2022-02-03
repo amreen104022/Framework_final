@@ -18,7 +18,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 
-import com.beust.jcommander.Parameters;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -34,33 +33,33 @@ public class BaseClass implements AutoConstant {
 	public WebDriverUtilities utilities=new WebDriverUtilities();
 
 
-//	static ExtentTest test;
-//	static ExtentReports report;
-//
-//	@BeforeClass
-//	public static void startTest()
-//	{
-//		report = new ExtentReports(System.getProperty("user.dir")+"./ExtentReportResults.html");
-//		test = report.startTest("ExtentDemo");
-//	}
-	
+	static ExtentTest test;
+	static ExtentReports report;
+
+	@BeforeClass
+	public static void startTest()
+	{
+		report = new ExtentReports(System.getProperty("user.dir")+"./ExtentReportResults.html");
+		test = report.startTest("ExtentDemo");
+	}
+
 
 	@BeforeTest
 	@org.testng.annotations.Parameters("browser")
 	public void setup(@Optional("chrome") String browser) throws Exception{
-		
+
 		if(browser.equalsIgnoreCase("firefox")){
 			//create firefox instance
-		//	System.setProperty("webdriver.gecko.driver", ".\\geckodriver.exe");
+			//	System.setProperty("webdriver.gecko.driver", ".\\geckodriver.exe");
 			WebDriverManager.firefoxdriver().setup();
-			
+
 			driver = new FirefoxDriver();
 		}
 		//Check if parameter passed as 'chrome'
 		else if(browser.equalsIgnoreCase("chrome")){
 			//set path to chromedriver.exe
 			//System.setProperty("webdriver.chrome.driver",".\\chromedriver.exe");
-			
+
 			WebDriverManager.chromedriver().setup();
 
 			//create chrome instance
@@ -71,11 +70,12 @@ public class BaseClass implements AutoConstant {
 			//set path to Edge.exe
 			WebDriverManager.edgedriver().setup();
 
-//			System.setProperty("webdriver.edge.driver",".\\MicrosoftWebDriver.exe");
+			//			System.setProperty("webdriver.edge.driver",".\\MicrosoftWebDriver.exe");
 			//create Edge instance
 			driver = new EdgeDriver();
 		}
 		else{
+
 			//If no browser passed throw exception
 			throw new Exception("Browser is not correct");
 			//WebDriverManager.chromedriver().setup();
@@ -89,25 +89,25 @@ public class BaseClass implements AutoConstant {
 	public void openApp() throws FileNotFoundException, IOException
 	{
 		WebDriverManager.chromedriver().setup();
-//		WebDriverManager.firefoxdriver().setup();
-//		WebDriverManager.edgedriver().setup();
-		
+		//		WebDriverManager.firefoxdriver().setup();
+		//		WebDriverManager.edgedriver().setup();
+
 		//System.setProperty("webdriver.chrome.driver", "./driver.exe");
 
-	//	driver=new ChromeDriver();
+		//	driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS); 
 		driver.get(p.getPropertyFileData("url"));
-		//test.log(LogStatus.PASS,"Test Passed");
+		test.log(LogStatus.PASS,"Test Passed");
 		System.out.println(driver.getCurrentUrl());
-//		if(driver.getCurrentUrl().equalsIgnoreCase("http://10.1.0.31/connectus-dummy/admin/login"))
-//		{
-//			test.log(LogStatus.PASS, "Navigated to the specified URL");
-//		}
-//		else
-//		{
-//			test.log(LogStatus.FAIL, "Test Failed");
-//		}
+		if(driver.getCurrentUrl().equalsIgnoreCase("http://10.2.11.23/connectus-dummy/admin/login"))
+		{
+			test.log(LogStatus.PASS, "Navigated to the specified URL");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Test Failed");
+		}
 	}
 
 	@AfterMethod
@@ -117,12 +117,12 @@ public class BaseClass implements AutoConstant {
 		driver.close(); 
 	}
 
-//	@AfterClass
-//	public static void endTest()
-//	{
-//		report.endTest(test);
-//		report.flush();
-//	}
+	@AfterClass
+	public static void endTest()
+	{
+		report.endTest(test);
+		report.flush();
+	}
 
 	/*
 	 * @AfterMethod
