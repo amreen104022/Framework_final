@@ -24,11 +24,13 @@ public class WebDriverUtilities implements AutoConstant{
 		Select s=new Select(ele);
 		s.selectByVisibleText(text);
 	}
+	
 	public void deselectAll(WebElement ele)
 	{
 		Select s=new Select(ele);
 		s.deselectAll();
 	}
+	
 	public void mouseHover(WebDriver driver, WebElement target)
 	{ 
 		Actions a =new Actions(driver);
@@ -61,7 +63,7 @@ public class WebDriverUtilities implements AutoConstant{
 		Set<String> child = driver.getWindowHandles();
 		child.remove(parent);
 		for(String b:child)
-		{
+		{ 
 			driver.switchTo().window(b);
 		}
 	}
@@ -77,7 +79,6 @@ public class WebDriverUtilities implements AutoConstant{
 		JavascriptExecutor js= (JavascriptExecutor) driver;
 		js.executeScript("windows.scrollBy("+x+","+y+")");
 	}
-	
 
 	public void compareWith(String actual,String expected) {
 		Assert.assertEquals(actual, expected);
@@ -94,8 +95,9 @@ public class WebDriverUtilities implements AutoConstant{
 		//String time = timestamp.replace("_", ":");
 		//Copy the screenshot on the desire location with different name using current date and time
 		//FileUtils.copyFile(scrFile, new File("C:/shots/" + fileName+" "+timestamp+extension));
-		TakesScreenshot ts=(TakesScreenshot)driver;
+		TakesScreenshot ts=(TakesScreenshot)driver; 
 		File src=ts.getScreenshotAs(OutputType.FILE);
+
 		//File dest=new File("./Photo/"+""+className+"_"+timestamp+".png");
 		File dest=new File(constant+""+photo+"_"+className+"_"+timestamp+".png");
 

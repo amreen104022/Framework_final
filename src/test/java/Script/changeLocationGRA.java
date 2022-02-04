@@ -36,7 +36,7 @@ public class changeLocationGRA extends BaseClass
         LoginLogout ll = new LoginLogout();
 		
 		ll.LoginPage(driver, uname, password);		
-		
+		 
         String className = this.getClass().getSimpleName(); 
         
         Thread.sleep(3000);
@@ -74,6 +74,4 @@ public class changeLocationGRA extends BaseClass
 		ll.LogoutPage(driver);
 		
 	}
-
-	
 } 

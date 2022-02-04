@@ -39,8 +39,8 @@ public class BaseClass implements AutoConstant {
 	@BeforeClass
 	public static void startTest()
 	{
-		report = new ExtentReports(System.getProperty("user.dir")+"./ExtentReportResults.html");
-		test = report.startTest("ExtentDemo");
+		report = new ExtentReports(System.getProperty("user.dir")+"./FrameworkReportResults.html");
+		test = report.startTest("FrameWorkDemo");
 	}
 
 
@@ -164,5 +164,4 @@ public class BaseClass implements AutoConstant {
 
 				driver.close();
 			}*/
-
 }
