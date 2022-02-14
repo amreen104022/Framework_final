@@ -23,6 +23,7 @@ public class WebDriverUtilities implements AutoConstant{
 	{
 		Select s=new Select(ele);
 		s.selectByVisibleText(text);
+		//s.selectByValue(text);
 	}
 	
 	public void deselectAll(WebElement ele)

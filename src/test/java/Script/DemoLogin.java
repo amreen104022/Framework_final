@@ -20,8 +20,10 @@ public class DemoLogin extends BaseClass
 //		WebDriver driver = new ChromeDriver();
 //		driver.get("http://10.1.0.31/connectus-dummy/admin/login");
 //		driver.manage().window().maximize();
-		LoginLogout ll = new LoginLogout();
+	    LoginLogout ll = new LoginLogout();
+		
 		ll.LoginPage(driver, uname, password);		
+		
 		WebDriverUtilities wd = new WebDriverUtilities();
 		wd.takeScreenShot(driver, "demo");
 		Thread.sleep(10000);

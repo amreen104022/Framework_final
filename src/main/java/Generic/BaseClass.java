@@ -32,7 +32,6 @@ public class BaseClass implements AutoConstant {
 
 	public WebDriverUtilities utilities=new WebDriverUtilities();
 
-
 	static ExtentTest test;
 	static ExtentReports report;
 
@@ -42,7 +41,6 @@ public class BaseClass implements AutoConstant {
 		report = new ExtentReports(System.getProperty("user.dir")+"./FrameworkReportResults.html");
 		test = report.startTest("FrameWorkDemo");
 	}
-
 
 	@BeforeTest
 	@org.testng.annotations.Parameters("browser")
@@ -55,6 +53,7 @@ public class BaseClass implements AutoConstant {
 
 			driver = new FirefoxDriver();
 		}
+
 		//Check if parameter passed as 'chrome'
 		else if(browser.equalsIgnoreCase("chrome")){
 			//set path to chromedriver.exe
@@ -98,7 +97,7 @@ public class BaseClass implements AutoConstant {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS); 
 		driver.get(p.getPropertyFileData("url"));
-		test.log(LogStatus.PASS,"Test Passed");
+		//test.log(LogStatus.PASS,"Test Passed");
 		System.out.println(driver.getCurrentUrl());
 		if(driver.getCurrentUrl().equalsIgnoreCase("http://10.2.11.23/connectus-dummy/admin/login"))
 		{

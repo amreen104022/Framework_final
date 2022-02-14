@@ -7,11 +7,16 @@ import org.openqa.selenium.support.PageFactory;
 
 public class homePage {
 	
+	
 	@FindBy(xpath = "//a[@class='sidebar-toggle']")
+	//@FindBy(xpath = "//*[@id=\"app\"]/header/nav/a")
 	private WebElement toggle;
 	
 	@FindBy(xpath = "//span[text()='Ornament Packing History']")
 	private WebElement ornamentPackingHistory;
+	
+	@FindBy(xpath = "//span[text()='Daily Stock Report']")
+	private WebElement dailyStockReport;
 
 	public void getUserProfile() {
 		userProfile.click();
@@ -30,7 +35,6 @@ public class homePage {
 	@FindBy(xpath = "//button[@class='confirm']")
 	private WebElement logoutconfirm;
 	
-	
 	public void getLogoutbtn() {
 		logoutbtn.click();
 	}
@@ -45,7 +49,7 @@ public class homePage {
 	public homePage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-
+ 
 	public void getToggle() {
 		toggle.click();
 	}
@@ -55,4 +59,8 @@ public class homePage {
 	}
 
 
+	public void getDailyStockReport()
+	{
+		dailyStockReport.click();
+	}
 }

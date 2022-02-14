@@ -3,14 +3,18 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Script.changeLocationGRA">
+      <class name="Script.dailyStock">
         <methods>
           <include name="setup"/>
+          <include name="login"/>
           <include name="closeApp"/>
-          <include name="Login123"/>
+          <include name="endTest"/>
+          <include name="closingStock"/>
           <include name="openApp"/>
+          <include name="oppeningStock"/>
+          <include name="startTest"/>
         </methods>
-      </class> <!-- Script.changeLocationGRA -->
+      </class> <!-- Script.dailyStock -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
